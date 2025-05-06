@@ -1,0 +1,268 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Hlavička */
+header {
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Hlavní obsah */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Horní řádek filtrů */
+.filter-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin: 10px 0;
+}
+
+.reset-btn {
+    padding: 8px 16px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Struktura stránky */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Postranní filtr */
+.filter-sidebar {
+    flex: 1 1 250px;
+    margin-right: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.filter-sidebar .filter-group {
+    margin-bottom: 15px;
+}
+
+/* Seznam dinosaurů – mřížka */
+.dino-list-grid {
+    flex: 3 1 0%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Jednotlivý dinosaurus */
+.dino-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dino-item:hover {
+    transform: translateY(-5px);
+}
+
+.dino-image {
+    width: 60%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.dino-item h2 {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.85);
+    padding: 5px;
+    font-size: 0.9em;
+    display: none;
+}
+
+.dino-item:hover .hover-text {
+    display: block;
+}
+
+/* Stránkování pod seznamem */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;  /* Upraveno pro lepší vizuální efekt mezi seznamem a stránkováním */
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+
+#pagination button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    background-color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pagination button.active {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+#pagination button:hover {
+    background-color: #ddd;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .modal-body {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .modal-image,
+    .modal-text {
+        flex: 1;
+    }
+
+    .modal-image img {
+        max-width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .modal-text {
+        padding-left: 20px;
+        overflow-y: auto;
+    }
+}
+
+.modal-text {
+    flex: 1 1 60%;
+}
+
+.modal-image {
+    flex: 1 1 40%;
+}
+
+.modal-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 50vh;
+    border-radius: 8px;
+}
+
+#modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Patička */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #eee;
+    color: #444;
+}
+
+/* Responzivita */
+@media (max-width: 900px) {
+    .dino-list-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dino-list-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .filter-sidebar {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
